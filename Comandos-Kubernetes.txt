@@ -1,0 +1,114 @@
+
+
+Lista nós do cluster : 
+
+	kubectl get nodes
+
+
+Cria pod com imagem do nginx : 
+
+	kubectl run nginx-pod --image=nginx:latest
+	
+	
+Lista Pods : 	
+
+	kubectl get pods 
+	kubectl get pods --watch 
+	
+
+Descrever o pod criado : 
+	
+	kubectl describe pod nginx-pod
+	
+	
+Edita um pod , podendo alterar valores : 
+		
+	kubectl edit pod  nginx-pod
+
+
+
+Executa um arquivo yaml para criar um pod :
+ 
+	cd /c/Users/W10/Desktop/codigo_fonte/kubernetes 
+	
+	kubectl apply -f primeiro-pod.yaml
+
+
+Deletando pods : 
+	
+	kubectl delete pod nginx-pod
+	kubectl delete -f primeiro-pod.yaml
+	
+	
+Entra dentro do container : 
+
+	kubectl exec -it portal-noticias -- bash
+
+
+Lista os servicos : 
+
+	kubectl get services	
+	
+	
+Descrive o servico : 
+
+	kubectl describe services svc-pod-2
+	
+	
+Deleta todos os pods : 
+	
+	kubectl delete  pods --all
+
+Deleta todos os servicos : 
+
+	kubectl delete  services   --all
+
+
+Lista dados do configMap : 
+
+	kubectl get configmap
+
+
+Descreve um config map : 
+
+	kubectl describe  configmap  db-configmap 	
+	
+	
+	
+Deleta configmap : 	
+	
+	kubectl delete configmap portal-noticias-configmap 	
+
+
+
+
+
+Subindo todos os projetos : 
+
+
+kubectl get configmap
+kubectl get pods
+kubectl get services
+
+
+kubectl delete configmap --all 
+kubectl delete pods --all 
+kubectl delete services --all 
+
+
+
+kubectl apply -f db-configmap.yaml
+kubectl apply -f sistema-noticias-configmap.yaml
+kubectl apply -f portal-noticias-configmap.yaml 
+
+
+kubectl apply -f  db-noticias.yaml
+kubectl apply -f  sistema-noticias.yaml
+kubectl apply -f  portal-noticias.yaml
+
+
+kubectl apply -f  svc-db-noticias.yaml
+kubectl apply -f  svc-sistema-noticias.yaml
+kubectl apply -f  svc-portal-noticias.yaml
+
+
